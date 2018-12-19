@@ -1,0 +1,43 @@
+@import "../../../../_colors.scss";
+
+:host {
+  background: $color4;
+  display: flex;
+  position: relative;
+  margin-right: 10px;
+  border: 1px solid #a9a9a9;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .input-container {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex: auto;
+    width: 100%;
+    max-width: 100%;
+    app-tag {
+      margin: 10px;
+    }
+    .tag-input {
+      padding: 20px;
+      flex: 1 1 0;
+      outline: none;
+      font-size: 1.2em;
+      color: $color3;
+      background: none;
+      border: none;
+    }
+  }
+  .tag-hint-list {
+    app-tag {
+      margin: 10px;
+    }
+    border-top: 2px solid #cec0b6;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: $color4;
+    width: 100%;
+  }
+}

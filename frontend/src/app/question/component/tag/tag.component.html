@@ -1,0 +1,4 @@
+<div class="tag" [ngStyle]="{'background': data.background, 'color': data.color}">
+  <span class="text">{{data.title}}</span>
+  <i *ngIf="closable" class="tag-right-icon material-icons md-dark" (click)="onHide()">close</i>
+</div>

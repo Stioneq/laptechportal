@@ -1,0 +1,29 @@
+<div [@animation]="messages.length" class="toast-wrapper">
+  <div class="message-box" *ngFor="let msg of messages; let i = index" [ngSwitch]="msg.messageType">
+
+    <i *ngSwitchCase="MSG_TYPE.SUCCESS" class="success icon material-icons">
+      check_circle
+    </i>
+    <i *ngSwitchCase="MSG_TYPE.INFO" class="info icon material-icons">
+      info
+    </i>
+    <i *ngSwitchCase="MSG_TYPE.WARN" class="warn icon material-icons">
+      warning
+    </i>
+    <i *ngSwitchCase="MSG_TYPE.ERR" class="err icon material-icons">
+      error
+    </i>
+    <i *ngSwitchCase="MSG_TYPE.CUSTOM" class="icon material-icons">
+    </i>
+
+
+    <div class="main">
+      <div class="header">{{msg.title}}</div>
+      <div class="content" [innerHTML]="msg.text"></div>
+    </div>
+    <i (click)="hide(i)" class="close-icon material-icons">
+      close
+    </i>
+
+  </div>
+</div>

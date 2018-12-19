@@ -1,0 +1,17 @@
+<div class="image-preview">
+  <canvas  *ngIf="preview" width="256" height="256" class="image" id="canvas" #canvas></canvas>
+  <div appDnd (imageDrag)="onImageChange($event)"
+       [allowedFormats]="['image/jpeg', 'image/png', 'image/gif']"
+       (click)="file.click()" class="preview-hint">
+    <ng-container *ngIf="!preview">
+      <i class="material-icons">cloud_upload</i>
+      <span class="hint dnd">Drag and drop image here to upload</span>
+      <span class="hint drop">You can drop image here</span>
+      <span class="hint error">Only images are allowed here</span>
+    </ng-container>
+  </div>
+  <input (change)="onImageChange(file.files)" class="invisible" #file type="file"/>
+
+
+</div>
+

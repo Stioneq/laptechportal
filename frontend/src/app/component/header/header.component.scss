@@ -1,0 +1,25 @@
+@import "../../../_colors.scss";
+
+header {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: flex-start;
+  background: $color3;
+  .title {
+    cursor: pointer;
+    margin-right: 1vw;
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-left: 10px;
+    -webkit-transition: transform 1s;
+    -moz-transition: transform 1s;
+    -ms-transition: transform 1s;
+    -o-transition: transform 1s;
+    transition: transform 1s;
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+}
+

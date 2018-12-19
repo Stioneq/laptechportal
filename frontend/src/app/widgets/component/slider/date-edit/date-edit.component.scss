@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  .min, .max {
+    color: #fff;
+    background: #34302D;
+    margin-bottom: 10px;
+    border: none;
+    padding: 5px;
+    outline: none;
+  }
+}

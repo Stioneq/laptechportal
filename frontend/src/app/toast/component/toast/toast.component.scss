@@ -1,0 +1,72 @@
+@import "../../../../_colors.scss";
+
+.toast-wrapper {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 500px) {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  @media (min-width: 500px) {
+    width: 50vw;
+    max-width: 50vw;
+  }
+  .message-box {
+    box-sizing: border-box;
+    display: flex;
+    color: $color4;
+    background: $color3;
+    overflow: auto;
+    padding: 20px;
+    .icon {
+      cursor: default;
+      flex: 0 0 auto;
+      align-self: center;
+      margin-right: 20px;
+      font-size: 1.8em;
+      &.success {
+        color: #6DB33F;
+      }
+      &.err {
+        color: #a70a0a;
+      }
+      &.warn {
+        color: #a79d25;
+      }
+      &.info {
+        color: #888;
+      }
+    }
+    .main {
+      flex: 1 1 0;
+      .content {
+        font-size: 0.9em;
+        word-wrap: break-word;
+      }
+      .header {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+    }
+    .close-icon {
+      flex: 0 0 auto;
+      align-self: center;
+      color: $color4;
+      cursor: default;
+      &:hover {
+        color: $color1;
+      }
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
+

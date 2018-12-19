@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"portal.ratings"},{"v":2,"unique":true,"key":{"questionId":1,"userId":1},"name":"questionId_userId","ns":"portal.ratings"}],"uuid":"de23b881a05a42ebb3f37ed4a3c1af93"}

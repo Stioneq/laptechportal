@@ -1,0 +1,68 @@
+@import "../../../../_colors.scss";
+:host {
+  display: flex;
+  justify-content: center;
+  padding: 17px 22px;
+  .image-preview {
+    .image {
+      height: 100%;
+    }
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 256px;
+    width: 256px;
+    .invisible {
+      display: none;
+    }
+    .preview-hint {
+      > * {
+        pointer-events: none;
+      }
+      border: 2px dashed #999;
+      .hint {
+        text-align: center;
+      }
+      .drop {
+        display: none;
+      }
+      .error {
+        display: none;
+      }
+      &.incorrect-drag {
+        border-color: #e00;
+        .hint {
+          &.dnd {
+            display: none;
+          }
+          &.error {
+            display: initial;
+          }
+        }
+      }
+      &.drag-success {
+        border-color: $color1;
+        .dnd {
+          display: none;
+        }
+        .drop {
+          display: initial;
+        }
+      }
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      cursor: default;
+      padding: 24px;
+      color: #000;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

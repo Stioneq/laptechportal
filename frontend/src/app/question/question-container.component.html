@@ -1,0 +1,17 @@
+<div [@navigationAnimation] class="navigation">
+  <i class="material-icons menu-item"
+     [routerLinkActiveOptions]="{ exact: true }"
+     routerLinkActive="active"
+     routerLink="./">view_module</i>
+  <i class="menu-item material-icons"
+     routerLinkActive="active"
+     routerLink="./form">add</i>
+  <div *ngIf="isQuestionListUrl()" class="filters-pane">
+  <app-active-filters></app-active-filters>
+  <span (click)="showFilters()"
+        class="menu-item filters-icon material-icons">filter_list</span>
+  </div>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,18 @@
+<ng-container [formGroup]="formGroup">
+
+
+  <app-number-edit
+    (maxValueChanged)="onMaxChanged($event)" (minValueChanged)="onMinChanged($event)"
+    *ngIf="type === 'DECIMAL'" [value]="cur" [min]="min" [max]="max">
+
+  </app-number-edit>
+  <app-date-edit *ngIf="type === 'DATE'"   (maxValueChanged)="onMaxChanged($event)" (minValueChanged)="onMinChanged($event)"
+                 [value]="cur" [min]="min" [max]="max">
+
+  </app-date-edit>
+  <div class="slider-pane" #sliderPane>
+    <input formControlName="slider1" #slider1 min="0" max="100" type="range" class="slider"/>
+    <input formControlName="slider2" #slider2 min="0" max="100" type="range" class="slider"/>
+    <div [style.left.px]="rangeLeft" [style.width.px]="rangeWidth" class="selected-range"></div>
+  </div>
+</ng-container>

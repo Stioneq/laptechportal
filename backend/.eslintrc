@@ -1,0 +1,40 @@
+{
+  "extends": [
+    "google"
+  ],
+
+  "rules": {
+    "linebreak-style": 0,
+    "comma-dangle": ["error", {
+      "arrays": "never",
+      "objects": "never",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore"
+    }],
+    "require-jsdoc": ["error", {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": false,
+        "ClassDeclaration": true,
+        "ArrowFunctionExpression": true,
+        "FunctionExpression": true,
+
+      }
+    }],
+    "indent": ["error", 4],
+    "new-cap": ["error", {
+      "capIsNew": false
+    }]
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 2017,
+
+  },
+
+  "env": {
+    "es6": true
+  }
+
+}

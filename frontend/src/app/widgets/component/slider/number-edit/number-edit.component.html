@@ -1,0 +1,4 @@
+<input class="min" type="number" [value]="value.min" #minInput
+       (input)="onMinChanged($event, minInput.value)"/>
+<input class="max" type="number" [value]="value.max" #maxInput
+       (input)="onMaxChanged($event, maxInput.value)"/>

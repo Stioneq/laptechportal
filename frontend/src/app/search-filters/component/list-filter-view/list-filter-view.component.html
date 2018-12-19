@@ -1,0 +1,14 @@
+<div class="filter-form" [formGroup]="form">
+  <mat-selection-list #list class="selection-list" [formControlName]="filter.fieldName">
+
+    <mat-list-option [value]="option.key" class="option" *ngFor="let option of filter.values | keyvalue">
+      {{option.key}}
+      <p class="counts" mat-line> Questions: {{option.value}} </p>
+    </mat-list-option>
+
+  </mat-selection-list>
+  <div class="footer">
+    <button mat-raised-button color="primary" type="button" (click)="selectAll()">Select all</button>
+    <button mat-raised-button color="primary" type="button" (click)="deselectAll()">Deselect all</button>
+  </div>
+</div>

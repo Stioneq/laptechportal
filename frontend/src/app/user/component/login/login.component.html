@@ -1,0 +1,27 @@
+<ng-container *ngIf="visible">
+  <div class="overlay" (click)="hidePopup()">
+  </div>
+
+
+  <div [@popupAnimation] class="popup">
+    <form [formGroup]="form" (submit)="login()">
+
+      <div class="row">
+        <input class="input" name="name" formControlName="username" type="text"/>
+        <i class="icon material-icons">person</i>
+      </div>
+      <div class="row">
+        <input [type]="showPassword?'text':'password'" class="input" name="password" formControlName="password" type="password"/>
+        <i (click)="showPassword = !showPassword" class="icon material-icons">lock</i>
+      </div>
+      <div [@errorAnimation] *ngIf="error" class="row error">
+        {{error}}
+      </div>
+      <div class="controls row">
+        <img src="./assets/img/github.png" (click)="socialLogin()" class="social"/>
+        <input [disabled]="form.untouched"  class="button" (click)="form.reset({name: '', password: ''})" type="button" value="Clear"/>
+        <input [disabled]="form.dirty && form.invalid" class="button" type="submit" value="Sign in"/>
+      </div>
+    </form>
+  </div>
+</ng-container>

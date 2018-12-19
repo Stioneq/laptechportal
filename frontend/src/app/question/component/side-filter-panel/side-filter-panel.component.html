@@ -1,0 +1,23 @@
+<div class="overlay" (click)="hide()">
+</div>
+<!--(swiperight)="hide()" temprorary as we have sliders-->
+<div class="search-pane">
+  <div class="header">
+    <span class="title">Search Filters</span>
+    <span (click)="hide()" class="hide-btn icon material-icons">forward</span>
+  </div>
+  <app-search-filters
+    *ngxProgress="{id: filterProgressId,replace:true, progressTemplate:
+    progress}"
+    (onSubmit)="applyFilter($event)" [values]="values$ | async" [filters]="filters$ | async">
+
+  </app-search-filters>
+  <ng-template #progress>
+    <ngx-progress class="progress">
+
+    </ngx-progress>
+  </ng-template>
+
+
+</div>
+

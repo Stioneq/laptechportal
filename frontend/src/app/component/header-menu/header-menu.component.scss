@@ -1,0 +1,94 @@
+@import "../../../_colors.scss";
+@import "../../../_dim.scss";
+
+:host {
+  height: 100%;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  @media (max-width: 500px) {
+    .toggle-menu {
+      display: initial;
+      cursor: pointer;
+    }
+    .menu {
+      left: -100%;
+      &.menu-toggled {
+        display: flex;
+        left: 0;
+      }
+      position: fixed;
+      .menu-item {
+        border-bottom: 1px solid #666;
+        font-size: 24px;
+      }
+      top: $header-height;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      -webkit-transition: left linear 0.2s;
+      -moz-transition: left linear 0.2s;
+      -ms-transition: left linear 0.2s;
+      -o-transition: left linear 0.2s;
+      transition: left linear 0.2s;
+      flex-direction: column;
+    }
+  }
+  @media (min-width: 500px) {
+    .toggle-menu {
+      display: none
+    }
+    .menu {
+      display: flex;
+      flex: 1 0 100%;
+      text-align: center;
+      align-items: center;
+      height: 100%;
+      box-sizing: border-box;
+      justify-content: center;
+      .menu-item {
+        vertical-align: middle;
+        font-size: 1em;
+        height: 100%;
+        .toggle-menu {
+          margin-left: auto;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .menu {
+    background: $color3;
+    .menu-item {
+      padding: 1vw;
+      display: flex;
+      cursor: pointer;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      box-sizing: border-box;
+      text-align: center;
+      align-items: center;
+      -webkit-transition: background 0.1s;
+      -moz-transition: background 0.1s;
+      -ms-transition: background .1s;
+      -o-transition: background .1s;
+      transition: background .1s;
+      user-select: none;
+      outline: none;
+      .placeholder {
+        flex-grow: 1;
+      }
+      &:hover {
+        background: $color1;
+        opacity: 0.9;
+      }
+      &.active {
+        background: $color1;
+      }
+    }
+  }
+}
+

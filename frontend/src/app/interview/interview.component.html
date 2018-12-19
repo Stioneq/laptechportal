@@ -1,0 +1,8 @@
+<ng-container  *ngxProgress="{id: 'TEST', replace:true, style: {width: '50px', height:'50px'}}">
+<div
+     *ngFor="let i of interviews | async" class="container">
+  {{i}}
+</div>
+</ng-container>
+
+<input type="text" #text (keyup.enter)="addInterview(text.value)"/>

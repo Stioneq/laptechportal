@@ -1,0 +1,110 @@
+@import "../../../../_colors.scss";
+@import "../../../../_dim.scss";
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #00000055;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  background: $color2;
+  border: 1px solid $color3;
+  position: absolute;
+  top: 100%;
+  @media (min-width: 500px) {
+    right: 10px;
+  }
+  @media (max-width: 500px) {
+    right: 0;
+    width: 100%;
+  }
+
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon-container {
+
+      &:hover {
+        .icon-overlay {
+          visibility: visible;
+          background: #00000099;
+        }
+      }
+      &:active {
+        .hint {
+          font-weight: bold;
+        }
+      }
+      position: relative;
+      height: auto;
+      margin-right: 12px;
+      .user-icon {
+        border-radius: 50%;
+        height: 128px;
+      }
+
+      .icon-overlay {
+        visibility: hidden;
+        color: $color4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: 100%;
+        .hint {
+          padding: 0 5px;
+          font-size: 0.8em;
+          text-align: center;
+        }
+      }
+    }
+    color: $color3;
+    &.user-info {
+      .block1x2 {
+        height: 100%;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        .username {
+          font-weight: bold;
+          font-size: 1.2em;
+          text-transform: capitalize;
+        }
+      }
+    }
+    &:not(.user-info) {
+      &:hover {
+        background: $color1;
+      }
+      &:active {
+        background: gold;
+      }
+    }
+    flex: 1 0 100%;
+    padding: 20px 40px;
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:not(:last-child) {
+      border-bottom: 1px solid $color3;
+    }
+  }
+}
+
+
+

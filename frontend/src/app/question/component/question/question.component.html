@@ -1,0 +1,27 @@
+<div class="header">
+
+  <div class="user-row">
+
+    <img class="icon" [@flipAnimation]="getIcon()" [src]="getIcon()">
+
+    <div class="user-col">
+      <span class="author">{{data?.author || 'Testname'}}</span>
+      <span class="posted-date" appTooltip
+            [tooltipText]="data?.postedDate | date:'medium'">{{data?.postedDate | timeAgo}}</span>
+    </div>
+
+  </div>
+  <div class="rating-row">
+    <app-rating  *ngIf="showRatingChange" [current]="data?.userRating" (change)="ratingChanged.emit($event)" [max]="5"></app-rating>
+    <span class="rating-icon material-icons">star</span>
+    <span class="rating-text">{{data?.rating | number:'1.2-2'}} </span>
+  </div>
+  <div class="tag-row">
+    <app-tag class="tag" *ngFor="let tag of data?.tags; let i = index" [data]="tag"></app-tag>
+  </div>
+</div>
+<div class="content" [innerHTML]="data.title">
+
+</div>
+<span class="material-icons edit-icon" (click)="$event.stopPropagation();edit.emit()" *ngIf="editable">edit</span>
+<span class="material-icons close-icon" (click)="$event.stopPropagation();remove.emit()" *ngIf="editable">close</span>

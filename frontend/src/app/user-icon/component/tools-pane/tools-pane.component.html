@@ -1,0 +1,10 @@
+
+<i (click)="onToolSelect('upload')" [ngClass]='{selected: selected==="upload"}' appTooltip="text" tooltipText="Upload image" class="item material-icons">
+  photo
+</i>
+<i (click)="onToolSelect('camera')" [ngClass]='{selected: selected==="camera"}' appTooltip="text" tooltipText="Make photo using webcam" class="item material-icons">
+  camera_alt
+</i>
+<app-icon [style]="{'font-size': '0.5em'}" [material]="true" [bubbleCount]="imagesCount" (click)="onToolSelect('view')" [ngClass]='{selected: selected==="view"}' [data]="'view_comfy'" appTooltip="text" tooltipText="View photos" class="item">
+</app-icon>
+

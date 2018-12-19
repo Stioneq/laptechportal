@@ -1,0 +1,47 @@
+# This file is a template, and might need editing before it works on your project.
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/node/tags/
+
+
+
+stages:
+
+
+frontend:
+  image: node:latest
+
+  only:
+    - master
+  # This folder is cached between builds
+  # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+  cache:
+    paths:
+    - node_modules/
+
+  script:
+   - cd frontend
+   - npm install
+   - npm build --prod --aot
+
+backend:
+  image: maven:alpine
+  script:
+   - cd portal
+   - mvn install -DskipTests
+
+deploy:
+  stage: deploy
+  script:
+    - apt-get update -yq
+    - apt-get install rubygems ruby-dev -y
+    - gem install dpl
+    - cd portal
+    - dpl --provider=heroku --app=laptechportal-backend --api-key=23d0f826-c581-4ae9-a016-7babca2a1efb
+front-deploy:
+  stage: deploy
+  script:
+    - apt-get update -yq
+    - apt-get install rubygems ruby-dev -y
+    - gem install dpl
+    - cd frontend
+    - dpl --provider=heroku --app=laptechportal --api-key=23d0f826-c581-4ae9-a016-7babca2a1efb

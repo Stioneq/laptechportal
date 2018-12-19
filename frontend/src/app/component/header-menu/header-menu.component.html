@@ -1,0 +1,12 @@
+
+
+<div class="menu" [ngClass]="{'menu-toggled': menuToggled}">
+<div *ngFor="let item of filteredItems" class="menu-item"
+     [routerLinkActiveOptions]="{ exact: true }"
+     routerLinkActive="active"
+     (click)="menuToggled = false" [routerLink]="item.link">{{item.title}}</div>
+<div class="placeholder"></div>
+</div>
+<span (click)='toggleMenu()' class="toggle-menu material-icons">menu</span>
+
+

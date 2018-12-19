@@ -1,0 +1,124 @@
+@import "../../../../_colors.scss";
+
+@media (max-width: 500px) {
+  :host {
+    margin-bottom: 20px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 500px) {
+  :host {
+    margin-bottom: 20px;
+    padding: 0 5%;
+  }
+}
+
+:host {
+  flex: 1 0 auto;
+  width: 0;
+  .form-group {
+    margin: 10px 0;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    background: $color2;
+    border: 1px solid $color3;
+    flex-direction: column;
+    .form-title {
+      user-select: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      background: $color3;
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    .item {
+      box-sizing: border-box;
+      color: $color1;
+      font-weight: bold;
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      margin-bottom: 10px;
+
+      .error {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        color: #B76362;
+        background: #F2DEDE;
+        padding: 10px;
+      }
+      .content {
+        align-items: flex-end;
+        justify-content: flex-start;
+        flex: 1 0 100%;
+        display: flex;
+        .input, .text-area {
+          border: 1px solid #a9a9a9;
+          font-size: 1.2em;
+          padding: 20px;
+          outline: none;
+          color: $color3;
+          margin: 10px 10px 0 10px;
+          background: $color4;
+          flex: auto;
+        }
+        quill-editor {
+          font-size: 1.4em;
+          outline: none;
+          color: $color3;
+          margin: 10px 10px 0 10px;
+          background: $color4;
+          flex: auto;
+          font-weight: normal;
+        }
+        app-tag-selector {
+          font-size: 1em;
+          margin: 10px;
+          background: $color4;
+          flex: 1 0 0;
+        }
+        .text-area {
+          resize: none;
+        }
+        &:last-of-type {
+          justify-content: center;
+        }
+        .submit, .clear {
+          margin-right: 5px;
+          font-weight: bold;
+          border: none;
+          padding: 10px;
+          background: $color3;
+          color: $color4;
+          align-self: center;
+          width: 200px;
+          &:hover {
+            background: $color1;
+          }
+          &:disabled {
+            background: #34302255;
+          }
+        }
+    }
+  }
+}
+
+ngx-progress {
+  width: 128px;
+  height: 128px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+}

@@ -1,0 +1,24 @@
+<ngx-progress class="progress" *ngxProgress="{id:userLoadProgressId}"></ngx-progress>
+<div class="container" *ngIf="userService.isAuthenticated$() | async; then authenticated else anonymous">
+
+</div>
+
+
+<ng-template #authenticated>
+  <img *ngIf="user" class="user-icon" [ngClass]="{selected: isPopupVisible}" (click)="showPopup()"
+       [src]="user && user.icon || './assets/img/user_icon.png'"/>
+
+</ng-template>
+
+<ng-template #anonymous>
+  <i (click)="showLogin()" [ngClass]="{selected: isShowLogin}" class="material-icons sign-in btn">account_box</i>
+
+</ng-template>
+<app-user-menu *ngIf="user" (uploadIconDialogClicked)="showImageUpload = true" [user]="user"
+               (hide)="close()"
+               [visible]="isPopupVisible"></app-user-menu>
+
+<app-change-icon (onImageUpload)="onImageUpload($event)" (hide)="showImageUpload = false" *ngIf="showImageUpload">
+
+</app-change-icon>
+<app-login (hide)="close()" [visible]="isShowLogin"></app-login>

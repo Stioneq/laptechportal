@@ -1,0 +1,26 @@
+<div *ngxProgress="{id: questionLoadProgressId, replace: true, progressTemplate: progress}"
+     class="question-list" [@cardAnimation]="questions?.length">
+
+
+  <app-question (ratingChanged)='onRatingChanged($event, q?.id)' (remove)="onQuestionDelete(q.id)"
+                (edit)="onQuestionEdit(q.id)"
+                [showRatingChange]="isAuthenticatedAndNotAuthor(currentUser$ | async, q.author)"
+                [editable]="isQuestionAuthor(currentUser$ | async, q.author)"
+                routerLink="/questions/{{q?.id}}" [data]="q" class="question-box" *ngFor="let q of questions">
+
+  </app-question>
+</div>
+<app-side-filter-panel *ngIf="modalService.showModal$(filtersModalId) | async" #filterPanel>
+
+</app-side-filter-panel>
+
+<div class="placeholder">
+
+</div>
+<!---Templates start --->
+<ng-template #progress>
+  <ngx-progress class="progress">
+
+  </ngx-progress>
+</ng-template>
+<!--Templates end --->

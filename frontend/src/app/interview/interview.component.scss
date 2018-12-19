@@ -1,0 +1,12 @@
+@import "../../_colors.scss";
+
+:host {
+  flex-direction: row;
+  background: #dcdcdc;
+  flex: 1 100%;
+  position: relative;
+  .container {
+    padding: 10px;
+    color: $color3;
+  }
+}

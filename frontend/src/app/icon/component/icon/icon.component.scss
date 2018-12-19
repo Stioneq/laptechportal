@@ -1,0 +1,26 @@
+@import "../../../../_colors.scss";
+
+:host {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .icon {
+    font-size: 1em;
+  }
+  .bubble {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    border: 1px solid $color3;
+    padding: 0.1em 0.5em;
+    font-weight: bold;
+    color: $color1;
+    background: $color4;
+    transform: translate(50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

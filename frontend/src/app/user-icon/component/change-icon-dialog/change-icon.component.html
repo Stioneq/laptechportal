@@ -1,0 +1,27 @@
+<div class="overlay" (click)="close()">
+  <div class="dialog" (click)="$event.stopPropagation()">
+
+
+    <div class="header">
+      Change user icon
+    </div>
+    <app-tools-pane [imagesCount]="newPhotos"  (onToolSelected)="toolSelected($event)"></app-tools-pane>
+    <div class="content">
+
+
+      <div class="slider" [@slider]="selectedIndex" [ngSwitch]="currentMode">
+          <app-upload-image (onImageUploaded)="image = $event" class="slide" *ngSwitchCase="'upload'"></app-upload-image>
+          <app-webcam class="slide" (onPhoto)="storePhoto($event)" *ngSwitchCase="'camera'"></app-webcam>
+          <app-imageviewer (selected)="image = $event" class="slide" [images]="photos" *ngSwitchCase="'view'"></app-imageviewer>
+
+
+      </div>
+
+
+    </div>
+    <div class="footer">
+      <input class="btn" [disabled]="!image" type="button" (click)="uploadImage()"
+             value="Upload"/>
+    </div>
+  </div>
+</div>

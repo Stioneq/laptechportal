@@ -1,0 +1,23 @@
+<div class="comment-container">
+  <img class="user-icon" [src]="data?.icon || './assets/img/user_icon.png'">
+
+
+  <div class="col2x1">
+    <div class="header">
+      <span class="author">{{data.author}}</span>
+      <span class="date">{{data.postedDate | timeAgo}}</span>
+      <span class="placeholder"></span>
+      <span [ngClass]="{disabled: commentControl.invalid}" (click)="onCommentEdited()"
+            class="material-icons icon  done-icon" *ngIf="edit">done</span>
+      <span (click)="edit = false" class="material-icons control icon cancel-icon" *ngIf="edit">cancel</span>
+      <span (click)="edit = true" class="material-icons control icon  edit-icon" *ngIf="editable && !edit">edit</span>
+      <span (click)="onDelete.emit(data.id)" class="material-icons icon close-icon" *ngIf="editable">close</span>
+    </div>
+    <textarea [formControl]="commentControl"
+              *ngIf="edit; else content" class="editable content"></textarea>
+    <ng-template #content>
+      <div class="content">{{data.text}}</div>
+    </ng-template>
+  </div>
+
+</div>

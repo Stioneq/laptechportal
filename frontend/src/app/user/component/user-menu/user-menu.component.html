@@ -1,0 +1,25 @@
+<ng-container *ngIf="visible">
+  <div class="overlay" (click)="hidePopup()">
+  </div>
+
+
+  <div [@popupAnimation] class="popup">
+    <div class="item user-info">
+      <div class="icon-container">
+        <img *ngIf="user" class="user-icon" [ngClass]="{selected: isPopupVisible}"
+             [src]="user && user.icon || './assets/img/user_icon.png'"/>
+        <div class="icon-overlay" (click)="hidePopup(); uploadIconDialogClicked.emit(null)"><i
+          class="upload-icon material-icons">add_a_photo</i>
+          <span class="hint">Click to change the icon</span>
+        </div>
+      </div>
+      <div class="block1x2">
+        <span class="username">{{user?.username}}</span>
+        <span class="fullname">{{user?.firstname + ' ' + user?.lastname}}</span>
+      </div>
+    </div>
+    <div class="item">My Profile</div>
+    <div (click)="logout()" class="item">Logout</div>
+  </div>
+</ng-container>
+

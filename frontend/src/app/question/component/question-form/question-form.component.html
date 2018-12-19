@@ -1,0 +1,57 @@
+<ngx-progress *ngxProgress="{id:questionFormProgressId}"
+              id="new-question-progress"></ngx-progress>
+<form class="form-group" [formGroup]="form" (submit)="submitQuestion()">
+  <div class="form-title">{{formTitle}}</div>
+
+
+  <div class="item">
+    <div class="content">
+      <input class="input title" placeholder="Title" formControlName="title" type="text">
+    </div>
+    <div [@collapseAnimation] class="error" *ngIf="form.controls['title'].invalid && form.controls['title'].touched">
+      Title is required. Length > 4
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="content">
+      <quill-editor [style]="{height: '250px'}" class="question" placeholder="Input your question"
+                    formControlName="question"></quill-editor>
+    </div>
+    <div [@collapseAnimation] class="error" *ngIf="form.controls['question'].invalid && form.controls['question'].touched">
+      Question is required
+    </div>
+  </div>
+  <div class="item">
+    <div class="content">
+      <quill-editor [style]="{height: '250px'}" class="answer" placeholder="Input your answer"
+                    formControlName="answer">
+
+      </quill-editor>
+    </div>
+    <div [@collapseAnimation] class="error" *ngIf="form.controls['answer'].invalid && form.controls['answer'].touched">
+      Answer is required
+    </div>
+  </div>
+
+  <div class="item" *ngIf="false">
+    <div class="content"><input type="email" class="input email" placeholder="Email" formControlName="author"
+                                name="email" id="email"></div>
+    <div [@collapseAnimation] class="error" *ngIf="form.controls['author'].invalid && form.controls['author'].touched">
+      {{form.controls['author'].value && 'Incorrect email' || 'Email is required '}}
+    </div>
+  </div>
+  <div class="item">
+
+    <div class="content">
+      <app-tag-selector (tagDeleted)="onRemoveTag($event)" (tagAdded)="onAddTag($event)"
+                        [tags]="form.value.tags"></app-tag-selector>
+    </div>
+  </div>
+  <div class="item">
+    <div class="content">
+      <input class="submit" [disabled]="form.status === 'INVALID' || submiting" type="submit" value="{{submitText}}"/>
+      <input class="clear" (click)="rebuildForm()"type="button" value="Clear form"/>
+    </div>
+  </div>
+</form>

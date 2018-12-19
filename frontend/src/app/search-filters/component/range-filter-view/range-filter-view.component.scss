@@ -1,0 +1,12 @@
+@import "../../../../_colors.scss";
+:host {
+  display: flex;
+  flex-direction: column;
+  .range {
+    background: #555;
+    padding: 10px;
+    .slider {
+      width: 100%;
+    }
+  }
+}

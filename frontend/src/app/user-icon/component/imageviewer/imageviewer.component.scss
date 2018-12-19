@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 17px 22px;
+  align-items: center;
+  .content {
+    position: relative;
+    display: grid;
+    width: 256px;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 256px;
+    .image {
+      width: 64px;
+      height: 64px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .mock {
+        height: 100%;
+        width: 100%;
+        border: 1px solid #999;
+      }
+    }
+    .placeholder {
+      position: absolute;
+      display: flex;
+      .close-icon {
+        position: absolute;
+        right: 0;
+        font-size: 1.6em;
+        visibility: hidden;
+      }
+      &:hover .close-icon {
+        visibility: visible;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      height: 256px;
+      width: 256px;
+      background: #00000033;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../../../_dim.scss";
+@import "../../../../_colors.scss";
+:host {
+  display: flex;
+  height: 100%;
+  margin: 5px 10px 5px auto;
+  align-items: center;
+  .progress {
+    width: 36px;
+    height: 36px;
+  }
+  .user-icon {
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    -webkit-transition: box-shadow 1s;
+    -moz-transition: box-shadow 1s;
+    -ms-transition: box-shadow 1s;
+    -o-transition: box-shadow 1s;
+    transition: box-shadow 1s;
+    &:hover, &.selected {
+      box-shadow: 0 0 10px 6px #098fe4a1;
+    }
+  }
+  .btn {
+    white-space: nowrap;
+    cursor: default;
+    color: $color4;
+    font-weight: bold;
+    font-size: 1.8em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover {
+      color: $color1;
+    }
+    &.selected {
+      color: $color1;
+    }
+  }
+}
+

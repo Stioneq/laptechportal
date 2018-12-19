@@ -1,0 +1,26 @@
+<form *ngIf="form" [formGroup]="form" class="form" (submit)="onSubmit($event)">
+  <div class="filters-container">
+    <div class="filter-container" *ngFor="let filter of _filters">
+      <div class="header" (click)="invertFilterVisibility(filter)">
+        <span class="title">{{filter.fieldName | titlecase}}</span>
+        <span *ngIf="hideFiltersMap[filter.fieldName]; else hide" class="arrow material-icons">expand_more</span>
+        <ng-template #hide>
+          <span class="arrow material-icons">expand_less</span>
+        </ng-template>
+      </div>
+      <div [@collapseAnimation]="hideFiltersMap[filter.fieldName]?'1':'0'" class="content"
+           [ngClass]="{hidden: hideFiltersMap[filter.fieldName]}">
+        <ng-container
+          appFilterView
+          [form]="form" [filter]="filter">
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <input [disabled]="!formChanged() || form.invalid" class="submit" type="submit" value="Apply"/>
+    <input [disabled]="!formChanged()" class="submit" (click)="revertForm()" type="button" value="Revert"/>
+    <input class="submit" (click)="resetForm()" type="button" value="Reset"/>
+  </div>
+</form>
+

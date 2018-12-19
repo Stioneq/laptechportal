@@ -1,0 +1,4 @@
+<span (click)="changed($event, i)" [ngClass]="{current: i>=max - current}" class="star material-icons"
+      *ngFor="let pl of placeholders; let i = index;">
+  star
+</span>

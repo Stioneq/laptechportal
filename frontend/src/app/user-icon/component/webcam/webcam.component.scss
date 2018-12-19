@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  justify-content: center;
+  padding: 17px 22px;
+  video {
+    .image {
+      height: 100%;
+    }
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 256px;
+    width: 256px;
+  }
+  .invisible {
+    display: none;
+  }
+}

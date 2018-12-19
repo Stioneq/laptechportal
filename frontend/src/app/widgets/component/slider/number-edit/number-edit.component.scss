@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  margin-bottom: 5px;
+  .min, .max {
+    width: 50px;
+    text-align: center;
+    color: #fff;
+    background: #34302D;
+    border: none;
+    padding: 5px 0;
+    outline: none;
+  }
+  .max {
+    margin-left: auto;
+  }
+}

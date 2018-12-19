@@ -1,0 +1,25 @@
+
+:host {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  direction: rtl;
+  color: #000;
+  .star:hover {
+    color: #ffefb4;
+  }
+  .star {
+    font-size: 1em;
+    &.current {
+      color: #ffd639;
+    }
+    &:hover ~ .star {
+      color: #ffefb4;
+    }
+  }
+}
+

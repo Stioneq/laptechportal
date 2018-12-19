@@ -1,0 +1,57 @@
+@import "../../../../_colors.scss";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  app-comment {
+    margin-top: 10px;
+    border: 1px solid #999;
+  }
+  .input-comment {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    .comment-text {
+      resize: none;
+      border: 1px solid #a9a9a9;
+      font-size: 1.2em;
+      padding: 20px;
+      outline: none;
+      color: $color3;
+      background: $color4;
+      flex: auto;
+    }
+    .add-comment-btn {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .progress {
+        width: 32px;
+        height: 32px;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+      font-weight: bold;
+      border: none;
+      padding: 5px;
+      background: $color3;
+      color: $color4;
+      cursor: pointer;
+      &:hover {
+        background: $color1;
+      }
+      &.disabled {
+        pointer-events: none;
+        background: #34302255;
+      }
+    }
+  }
+}
+

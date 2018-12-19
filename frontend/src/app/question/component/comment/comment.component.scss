@@ -1,0 +1,62 @@
+@import "../../../../_colors.scss";
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  background: #dcdcdc;
+  color: $color3;
+  flex: 1 100%;
+  .user-icon {
+    width: 36px;
+    box-shadow: 1px 1px 6px 0 #000;
+    height: 36px;
+    flex: 0 0 36px;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  .col2x1 {
+    display: flex;
+    width: 10px;
+    flex-grow: 1;
+    flex-direction: column;
+    .header {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .author {
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+      .date {
+        font-size: 0.8em;
+        margin-left: 20px;
+      }
+      .placeholder {
+        flex-grow: 1;
+      }
+      .icon {
+        cursor: pointer;
+        user-select: none;
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.1;
+        }
+        &:hover {
+          color: $color1;
+        }
+      }
+    }
+    .content {
+      &.editable {
+        resize: none;
+        word-wrap: break-word;
+        flex: 1 0 auto;
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,38 @@
+@import "../../../../_colors.scss";
+
+:host {
+  display: flex;
+  padding: 10px;
+  background: #555;
+  flex-direction: column;
+  .text {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    input[type='text'] {
+      font-size: 1.2em;
+      outline: none;
+      border: none;
+      padding: 10px 30px 10px 10px;
+      color: $color4;
+      background: $color3;
+      flex: 1 0 auto;
+      width: 0;
+    }
+    .close-icon {
+      position: absolute;
+      right: 5px;
+      cursor: pointer;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2em;
+      color: $color4;
+      &:hover {
+        color: $color1;
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "../../../../colors";
+
+:host {
+  display: flex;
+  padding: 10px;
+  background: #555;
+  flex-direction: column;
+
+  .selection-list {
+    overflow-y: auto;
+    max-height: 300px;
+    .option {
+      background: $color3;
+      .counts {
+        font-size: 0.6em;
+        color: #ffffff88
+      }
+    }
+  }
+  .footer {
+    justify-content: center;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    button {
+      margin-right: 5px;
+    }
+  }
+  .progress {
+    display: flex;
+    width: 32px;
+    height: 32px;
+  }
+
+}

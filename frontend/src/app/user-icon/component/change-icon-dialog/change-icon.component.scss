@@ -1,0 +1,83 @@
+@import "../../../../_colors.scss";
+
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #00000055;
+  .dialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    background: $color2;
+    border: solid 1px $color3;
+    user-select: none;
+  }
+}
+.dialog {
+  .header {
+    user-select: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: $color3;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  flex-direction: column;
+  display: flex;
+  app-tools-pane {
+    box-sizing: border-box;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  > * {
+    width: 100%;
+    .upload-progress {
+      margin-bottom: 10px
+    }
+  }
+  .slider {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    .btn {
+      margin: 10px 20px;
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      background: $color3;
+      color: $color4;
+      width: 200px;
+      &:hover {
+        background: $color1;
+      }
+      &:disabled {
+        background: #34302255;
+      }
+    }
+  }
+}

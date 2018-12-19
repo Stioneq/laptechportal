@@ -1,0 +1,9 @@
+<div class="input-container">
+<app-tag [closable]="true" *ngFor="let tag of tags; let i = index" (hide)="onTagDelete(i)" [data]="tag">
+
+</app-tag>
+<input [pattern]="'^[a-zA-Z \-\']$'" #tagInput class="tag-input" type="text" placeholder="Select existing tag or insert new" (keydown)="onKeyDown($event)" (keyup)="onKeyUp($event)"/>
+</div>
+<div *ngIf="hintTags.length > 0"  class="tag-hint-list">
+    <app-tag *ngFor="let search of hintTags" (click)="onTagClicked(search)" [data]="search"></app-tag>
+</div>

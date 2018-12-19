@@ -1,0 +1,20 @@
+<ng-container *ngIf="comments">
+  <app-comment [editable]="isCommentAuthor(currentUser, comment.author)" (onEdit)="editComment($event)"
+               (onDelete)="deleteComment($event, i)" *ngFor="let comment of comments; let i = index;" [data]="comment">
+
+  </app-comment>
+</ng-container>
+<div class="input-comment" *ngIf="authenticated$ | async">
+  <textarea (keyup.control.enter)='$event.preventDefault();add.click()' [formControl]="addCommentControl" class="comment-text">
+
+  </textarea>
+
+  <div #add (click)='addComment()' class="add-comment-btn"
+       [ngClass]="{disabled: addCommentControl.invalid || submitting}">
+    <i *ngIf="!submitting" class="material-icons">
+      input
+
+    </i>
+    <ngx-progress *ngxProgress="{id:addCommentProgressId}" class="progress"></ngx-progress>
+  </div>
+</div>

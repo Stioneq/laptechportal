@@ -1,0 +1,58 @@
+<ng-container *ngIf="data">
+  <div class="header" [ngStyle]="{editable: isAuthenticatedAndNotAuthor(currentUser, data.author)}">
+
+    <a (click)="back()"><span class="arrow material-icons">arrow_back</span></a>
+    <span class="title" [innerHTML]="data.title">
+  </span>
+    <div class="user-col">
+      <div class="user-row">
+        <span class="author">{{data.author}}</span>
+        <img class="icon" [src]="data.icon">
+      </div>
+      <span class="posted-date" appTooltip
+            [tooltipText]="data.postedDate | date:'medium'">{{data.postedDate | timeAgo}}</span>
+      <div class="rating-row">
+        <app-rating *ngIf="isAuthenticatedAndNotAuthor(currentUser, data.author)" [current]="data.userRating"
+                    (change)="onRatingChanged($event, data.id)" [max]="5"></app-rating>
+        <span *ngIf="!ratingUpdating" class="rating-icon material-icons">star</span>
+        <span *ngIf="!ratingUpdating" class="rating-text">{{data.rating | number:'1.2-2'}} </span>
+        <ngx-progress class="rating-progress" *ngxProgress="{id:detailedQuestionRatingProgressId}">
+
+        </ngx-progress>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <span class="content-title">Question:</span>
+    <div class="question" [innerHTML]="data.question">
+
+    </div>
+    <span class="content-title">Answer:</span>
+    <div class="answer" [innerHTML]="data.answer"></div>
+  </div>
+  <div class="footer">
+    <div class="tags">
+      <app-tag *ngFor="let tag of data.tags; let i = index" [data]="tag"></app-tag>
+    </div>
+    <div class="tools-panel">
+      <app-icon [style]="{'font-size': '0.6em'}" class="icon" (click)="$event.stopPropagation();showComments(data.id)"
+                [bubbleCount]="data.comments"
+                [data]="'mode_comment'" [material]="true"></app-icon>
+
+      <span class="material-icons icon"
+            (click)="$event.stopPropagation();onQuestionEdit(data.id)"
+            *ngIf="isQuestionAuthor(currentUser, data.author)">edit</span>
+      <span class="material-icons icon"
+            (click)="$event.stopPropagation();onQuestionDelete(data.id)"
+            *ngIf="isQuestionAuthor(currentUser, data.author)">close</span>
+    </div>
+  </div>
+  <app-comment-list (commentRemoved)="decreaseCommentsCount()" (commentAdded)="increaseCommentsCount()"
+                    [questionId]="data.id" *ngIf="isShowComments">
+
+  </app-comment-list>
+</ng-container>
+
+<ngx-progress class="question-load-progress" *ngxProgress="{id:detailedQuestionProgressId}">
+
+</ngx-progress>

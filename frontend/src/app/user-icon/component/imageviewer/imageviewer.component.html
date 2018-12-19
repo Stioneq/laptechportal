@@ -1,0 +1,13 @@
+<div (click)="test2()" [ngStyle]="{'grid-template-rows': 'repeat(' +count +', 1fr)', 'grid-template-columns': 'repeat(' +3 +', 1fr)'}"
+     class="content">
+  <div *ngFor="let _ of imagesPlaceholders; let i = index" class="image">
+    <img *ngIf="i < images.length" (click)="imgSelected($event)" [src]="images[i]">
+    <div class="mock" *ngIf="i >= images.length"></div>
+  </div>
+  <div  [@imageAnimation]="{value: '',params: {startX: selectedImage.x, startY: selectedImage.y}}" class="placeholder" *ngIf="selectedImage.display">
+    <i (click)='closeImage()' class="close-icon material-icons">close</i>
+    <img [src]="selectedImage.src"/>
+  </div>
+</div>
+
+
