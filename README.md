@@ -6,17 +6,17 @@ It will use technologies that i will learn in the future.
 
 ## Technologies: 
 Frontend: Angular 6
+ 
+Backend:  
+Javascript - Language 
+NodeJS - runtime env 
+ExpressJS - web framework 
+MomentJS - date manipulation 
 
-Backend: 
-Javascript - Language
-NodeJS - runtime env
-ExpressJS - web framework
-MomentJS - date manipulation
-
-Tests:
-Mocha - test framework
-Chai - assertion framework
-Instanbul - code coverage
+Tests: 
+Mocha - test framework 
+Chai - assertion framework 
+Instanbul - code coverage 
 
 
 ## Modules
