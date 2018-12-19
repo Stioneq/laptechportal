@@ -14,10 +14,10 @@ NodeJS - runtime env
 ExpressJS - web framework  
 MomentJS - date manipulation  
 
-Tests: 
-Mocha - test framework 
-Chai - assertion framework 
-Instanbul - code coverage 
+### Tests:   
+Mocha - test framework   
+Chai - assertion framework  
+Instanbul - code coverage   
 
 
 ## Modules
