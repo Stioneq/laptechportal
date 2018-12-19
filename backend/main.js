@@ -1,8 +1,7 @@
 require('dotenv').config();
 const app = require('./app');
+const config = require('@laptechportal/config');
 
-
-const config = require('./config');
 const server = app.listen(config.app.port, config.app.address, () => {
     console.log(`${config.app.name} started on ${server.address().port} port`);
 });

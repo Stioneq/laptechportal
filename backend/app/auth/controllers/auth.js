@@ -1,6 +1,6 @@
 const UserModel = require('../models/users.js');
 const logger = require('../../logging/winston');
-const config = require('../../../config');
+const config = require('@laptechportal/config');
 const jwt = require('../../../utils/jwt')(config.app.auth.jwt.secret);
 const bcrypt = require('bcryptjs');
 const {

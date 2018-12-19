@@ -34,6 +34,7 @@
     "sinon": "^7.1.1"
   },
   "dependencies": {
+    "@laptechportal/config": "file:config",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "busboy": "^0.2.14",
